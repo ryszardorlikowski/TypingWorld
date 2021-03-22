@@ -1,6 +1,6 @@
 <template>
   <div class="form-box">
-    <div class="form-box__title">Please login</div>
+    <div class="form-box__title">Login to your account</div>
     <form class="form" action="#" @submit.prevent="login">
       <label>
         Username:
@@ -15,7 +15,7 @@
     </form>
     <div class="form-box__footer">
       Don't have an account?
-      <router-link :to="{name: 'Home'}">Register now</router-link>
+      <router-link :to="{name: 'Register'}">Register now</router-link>
     </div>
   </div>
 </template>
@@ -40,7 +40,6 @@ export default {
           username: this.username,
           password: this.password
         }).then(() => {
-          this.errors = [];
           this.$router.push({name: 'Home'});
         }).catch(error => {
           if (error.response?.status === 401) {

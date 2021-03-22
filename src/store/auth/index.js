@@ -1,6 +1,6 @@
 import authActionsType from '@/store/auth/actions.type'
 import authMutationsType from '@/store/auth/mutations.type'
-import api from '@/services/api'
+import apiClient from '@/services/api'
 import tokenManager from '@/services/token'
 
 export default {
@@ -12,7 +12,7 @@ export default {
     actions: {
         [authActionsType.LOGIN]({dispatch}, credential) {
             return new Promise((resolve, reject) => {
-                api.login(credential.username, credential.password)
+                apiClient.login(credential.username, credential.password)
                     .then(({data}) => {
                         tokenManager.setTokens(data.access, data.refresh);
                         dispatch(authActionsType.GET_USER_PROFILE);
@@ -25,7 +25,7 @@ export default {
         },
         [authActionsType.GET_USER_PROFILE]({commit}) {
             return new Promise((resolve, reject) => {
-                api.getUserProfile()
+                apiClient.getUserProfile()
                     .then(({data}) => {
                         commit(authMutationsType.SET_USER, data);
                         resolve();
