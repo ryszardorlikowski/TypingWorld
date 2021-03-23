@@ -31,6 +31,10 @@ export default {
             return null;
         }
         return refreshToken;
+    },
+    removeTokens(){
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
     }
 
 }

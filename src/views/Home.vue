@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     Home page
     {{ isLoggedIn }}
   </div>
@@ -10,7 +10,6 @@ import {mapGetters} from "vuex";
 
 export default {
   name: 'Home',
-  components: {},
   computed: {
     ...mapGetters('auth', ['isLoggedIn', 'getUserData'])
   }

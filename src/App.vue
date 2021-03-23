@@ -1,18 +1,23 @@
 <template>
   <div>
-    <router-view/>
+    <NavBar/>
+    <div class="container">
+      <router-view/>
+    </div>
+    <Footer />
   </div>
 </template>
 <script>
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+
 export default {
   name: 'App',
+  components: {NavBar, Footer},
 }
 </script>
 <style>
-*{
-  box-sizing: border-box;
-}
-#app {
-  color: black;
+* {
+  margin: 0;
 }
 </style>
