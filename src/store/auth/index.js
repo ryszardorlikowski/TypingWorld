@@ -33,6 +33,14 @@ export default {
                     reject(error);
                 })
             })
+        },
+        [authActionsType.LOGOUT]({commit}){
+             return new Promise(resolve => {
+                 commit(authMutationsType.UNSET_USER);
+                 tokenManager.removeTokens();
+                 apiClient.removeAuthHeader();
+                 resolve();
+             })
         }
 
     },
@@ -40,6 +48,10 @@ export default {
         [authMutationsType.SET_USER](state, userData) {
             state.userData = userData;
             state.isLoggedIn = true;
+        },
+        [authMutationsType.UNSET_USER](state) {
+            state.userData = null;
+            state.isLoggedIn = false;
         }
     },
     getters: {

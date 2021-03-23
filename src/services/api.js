@@ -66,5 +66,8 @@ export default {
             email,
             password
         })
+    },
+    removeAuthHeader(){
+        delete api.defaults.headers.common['Authorization'];
     }
 }
