@@ -57,16 +57,14 @@ export default {
             username,
         })
     },
-    getUserProfile(){
+    getUserProfile() {
         return api.get('accounts/profile')
     },
     register(username, email, password) {
-        return api.get('accounts/register', {
-            params: {
-                username,
-                email,
-                password
-            }
+        return api.post('accounts/register', {
+            username,
+            email,
+            password
         })
     }
 }
