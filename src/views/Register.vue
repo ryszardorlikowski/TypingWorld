@@ -32,7 +32,7 @@
 import apiClient from '@/services/api'
 
 export default {
-  name: "Register",
+  name: 'Register',
   data() {
     return {
       username: '',

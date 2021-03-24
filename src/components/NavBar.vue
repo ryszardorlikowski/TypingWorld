@@ -14,6 +14,9 @@
         <router-link :to="{name: 'Register'}">Register</router-link>
       </li>
       <li v-if="isLoggedIn">
+        <router-link :to="{name: 'Dashboard'}">Dashboard</router-link>
+      </li>
+      <li v-if="isLoggedIn">
         <a @click="logout" href="#">Logout</a>
       </li>
       <li v-if="isLoggedIn">

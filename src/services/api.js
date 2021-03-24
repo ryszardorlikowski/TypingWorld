@@ -67,7 +67,14 @@ export default {
             password
         })
     },
-    removeAuthHeader(){
+    removeAuthHeader() {
         delete api.defaults.headers.common['Authorization'];
+    },
+    getAllLessons() {
+        return api.get('lessons')
+    },
+
+    getAllUserExercises() {
+        return api.get('lessons/exercises')
     }
 }
