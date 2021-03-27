@@ -51,11 +51,15 @@ api.interceptors.response.use(
 
 
 export default {
+
+    removeAuthHeader() {
+        delete api.defaults.headers.common['Authorization'];
+    },
     login(username, password) {
         return api.post('accounts/login', {
             password,
             username,
-        })
+        });
     },
     getUserProfile() {
         return api.get('accounts/profile')
@@ -65,16 +69,17 @@ export default {
             username,
             email,
             password
-        })
-    },
-    removeAuthHeader() {
-        delete api.defaults.headers.common['Authorization'];
+        });
     },
     getAllLessons() {
-        return api.get('lessons')
+        return api.get('lessons');
     },
 
     getAllUserExercises() {
-        return api.get('lessons/exercises')
+        return api.get('lessons/exercises');
+    },
+    getLesson(lessonId) {
+        return api.get(`lessons/${lessonId}`);
     }
+
 }
