@@ -5,6 +5,8 @@ services:
     build: ./backend
     env_file:
       - .env
+    environment:
+      CORS_ALLOWED_ORIGINS: http://${HOST}:${FRONTEND_PORT}
     restart: always
     image: typing_world_backend:${VERSION}
     container_name: typing_world_backend-${VERSION}
@@ -16,7 +18,7 @@ services:
     build:
       context: ./frontend
       args:
-        - VUE_APP_BACKEND_URL=http://${HOST}:${BACKEND_PORT}
+        - VUE_APP_API_BASE_ADDRESS=http://${HOST}:${BACKEND_PORT}/api
     env_file:
       - .env
     restart: always

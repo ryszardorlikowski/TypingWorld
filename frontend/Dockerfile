@@ -3,6 +3,11 @@ FROM node:lts-alpine
 RUN npm install -g http-server
 # make the 'app' folder the current working directory
 WORKDIR /app
+
+# set environment variable
+ARG VUE_APP_API_BASE_ADDRESS
+ENV VUE_APP_API_BASE_ADDRESS=$VUE_APP_API_BASE_ADDRESS
+
 # copy both 'package.json' and 'package-lock.json' (if available)
 COPY package*.json ./
 
