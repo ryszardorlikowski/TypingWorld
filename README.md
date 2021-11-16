@@ -5,7 +5,7 @@ Frontend - VueJS
 Backend - Django
 
 ## Description
-App allow creating typing lessons and practice.
+...
 
 ## Screenshots
 ![](screenshots/screen2.png)
